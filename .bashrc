@@ -11,8 +11,8 @@ cf() { cd "$@" && ls; }
 export HISTFILESIZE=9999999999
 export HISTSIZE=9999999999
 export HISTTIMEFORMAT="[%F %T] "
-setopt EXTENDED_HISTORY
-setopt INC_APPEND_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
+# setopt EXTENDED_HISTORY
+# setopt INC_APPEND_HISTORY
+# setopt HIST_IGNORE_ALL_DUPS
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
