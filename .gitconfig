@@ -1,0 +1,49 @@
+[user]
+	email = patrick@playgroundai.com
+	name = phultquist
+[alias]
+    # one-line log
+    l = log --pretty=format:"%C(yellow)%h\\ %ad%C(green)%d\\ %Creset%s%C(yellow)\\ [%cn]" --decorate --date=short
+
+    a = add
+    ap = add -p
+    c = commit --verbose
+    ca = commit -a --verbose
+    cm = commit -m
+    cam = commit -a -m
+    m = commit --amend --verbose
+
+    d = diff
+    ds = diff --stat
+    dc = diff --cached
+
+    s = status -s
+    co = checkout
+    cob = checkout -b
+
+    undo = reset HEAD~1 --soft
+
+    main = !git checkout main && git pull origin
+    sms = !git stash && git main && git stash pop
+
+    re = remote -v
+    # list branches sorted by last modified
+    #b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+    ba = branch --sort=-committerdate
+    b = "!git branch --sort=-committerdate | grep -v archive"
+    bh = "!git branch --sort=-committerdate | grep -v archive | head -n 8"
+
+    # list aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+
+    p = pull --rebase
+    cobcam = "!f() { branch=\"ph/$(echo $1 | tr '[:upper:]' '[:lower:]' | tr ' ' '-')\"; git checkout -b $branch && git commit -a -m \"$1\"; }; f"
+    cobcamp = "!f() { branch=\"ph/$(echo $1 | tr '[:upper:]' '[:lower:]' | tr ' ' '-')\"; git checkout -b $branch && git commit -a -m \"$1\"; git push }; f"
+    camp = "!f() { git commit -am \"$1\" && git push; }; f"
+[push]
+	autoSetupRemote = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
