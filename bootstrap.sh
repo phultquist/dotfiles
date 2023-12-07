@@ -6,7 +6,6 @@ tmux source ~/.tmux.conf
 sudo apt-get install apt-file -y
 sudo apt-file update -y
 sudo apt-get -y upgrade
-sudo apt install zsh -y
 sudo apt-get install -y git
 sudo apt-get install -y python-setuptools
 sudo apt-get install -y build-essential
@@ -34,3 +33,5 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 && sudo apt install gh -y
 
 wget https://raw.githubusercontent.com/phultquist/dotfiles/main/.bashrc -O ~/.bashrc
+
+source ~/.bashrc
